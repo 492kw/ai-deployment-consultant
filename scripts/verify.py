@@ -69,25 +69,20 @@ visible_text = ''.join(parser.text)
 visible_metadata = ' '.join(parser.visible_attrs)
 visible_text_normalized = re.sub(r'\s+', ' ', visible_text).strip()
 
-brief_required = [
+hero_asset = 'assets/images/fde-hero.jpg'
+need(hero_asset in html, 'hero image reference is missing')
+need((ROOT / hero_asset).is_file(), 'hero image asset is missing')
+need('<figure class="hero-graphic">' in html, 'semantic hero graphic figure is missing')
+need('width="2816"' in html and 'height="1536"' in html, 'hero image dimensions are missing')
+need('alt="AI Deployment Consultant graphic showing a staged path from strategise and integrate to measurable impact."' in html, 'hero image alt text is missing or changed')
+need('Strategic AI integration, scaled around a real business workflow.' in visible_text_normalized, 'hero graphic caption is missing')
+need('.hero-graphic' in (ROOT / 'assets/site.css').read_text(), 'hero graphic CSS is missing')
+for removed in [
     'AI deployment brief / 01',
     'Move one bottleneck into a safe first rollout.',
-    'The bottleneck',
-    'Enquiries arrive incomplete and scattered across email, forms and call notes.',
-    'The first useful change',
-    'Prepare a reviewable intake with the key details, missing information and recommended next step.',
-    'The safeguard',
-    'Hold unusual, incomplete or sensitive cases for a person to check before anything is sent or recorded.',
-    'Operational outcome',
-    'A clear next action: reply, booking or CRM update.',
-    'A bounded deployment—not automation for its own sake.',
-]
-for text in brief_required:
-    need(text in visible_text_normalized, f'missing deployment brief content: {text}')
-
-need('<figure' in html and 'class="deployment-brief"' in html, 'semantic deployment brief figure is missing')
-need('aria-labelledby="brief-title"' in html and 'aria-describedby="brief-caption"' in html, 'deployment brief accessible labelling is missing')
-for removed in [
+    'class="deployment-brief"',
+    'brief-title',
+    'brief-caption',
     'Workflow field map',
     'You know the work.',
     'svg class="workflow-map"',
@@ -101,9 +96,9 @@ for removed in [
     'class="input"',
     'class="output"',
 ]:
-    need(removed not in html, f'removed workflow-map markup/text remains: {removed}')
-for removed_selector in ['.workflow-map', '.map-wrap', '.map-mobile', '.map-grid', '.route', '.feedback', '.stage', '.gate', '.input rect', '.output rect']:
-    need(removed_selector not in (ROOT / 'assets/site.css').read_text(), f'removed workflow-map CSS remains: {removed_selector}')
+    need(removed not in html, f'removed hero markup/text remains: {removed}')
+for removed_selector in ['.deployment-brief', '.brief-header', '.brief-status', '.workflow-map', '.map-wrap', '.map-mobile', '.map-grid', '.route', '.feedback', '.stage', '.gate', '.input rect', '.output rect']:
+    need(removed_selector not in (ROOT / 'assets/site.css').read_text(), f'removed hero CSS remains: {removed_selector}')
 
 need(RECIPIENT not in visible_text, 'email address appears in a visible index.html text node')
 need(RECIPIENT not in visible_metadata, 'email address appears in index.html alt, title or aria-label text')
