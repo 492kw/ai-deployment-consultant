@@ -5,18 +5,19 @@ Status: approved for implementation
 
 ## Acceptance contract
 
-Build a public, GitHub Pages-compatible one-page site for Brisbane and remote Australian SMBs. It must position an owner-operated consultant in first-person singular, use `enzo491kw@gmail.com` as the only published contact email, and offer scoped engagements quoted after assessment. It must not claim client outcomes, publish prices, promise a free service, imply a team, or make universal ROI/statistical claims.
+Build a public, GitHub Pages-compatible one-page site for Brisbane and remote Australian SMBs. It positions an owner-operated consultant in first-person singular, uses `enzo491kw@gmail.com` as the only published contact email, and offers scoped engagements quoted after assessment. It must not claim client outcomes, publish prices, promise a free service, imply a team, or make universal ROI/statistical claims.
 
 ## Audience and job
 
-The audience is an SMB owner or operations lead with recurring admin work, disconnected tools, or an AI idea that has not made it into the real workflow. The page's job is to turn a vague AI enquiry into a well-scoped email assessment.
+The audience is an SMB owner or operations lead with recurring admin work, disconnected tools, or an AI idea that has not made it into the real workflow. The page turns a vague AI enquiry into a well-scoped email assessment.
 
 ## Alternatives considered
 
 1. Product-dashboard/SaaS visual language: rejected because this is a consultative service, not software for sale.
 2. Generic warm-card consultancy page: rejected because it would not explain the work or distinguish the service.
 3. Dark technical/AI aesthetic: rejected because it conflicts with the established light, practical commercial family.
-4. Selected: a field-notebook inspired workflow map. It turns the last-mile method into the memorable visual and keeps every other element quiet and useful.
+4. Workflow field map: removed because abstract grids, routes, gates and tiny labels compete with the message and duplicate the later 30-day method.
+5. Selected: a bottleneck-to-rollout deployment brief. It is a concrete scoped working artefact that makes the diagnostic, first change, human safeguard and operational outcome legible at a glance.
 
 ## Selected design system
 
@@ -26,8 +27,8 @@ The audience is an SMB owner or operations lead with recurring admin work, disco
 - Surface: `#FFFDFC`
 - Ink: `#18221F`
 - Muted ink: `#4B5651`
-- Copper: `#A95F32`
-- Copper dark: `#7E3E1E`
+- Copper: `#7E3E1E`
+- Copper dark: `#5E2913`
 - Sage: `#607763`
 - Ochre highlight: `#D9B35F`
 - Rule: `#D9D0C2`
@@ -36,15 +37,25 @@ The audience is an SMB owner or operations lead with recurring admin work, disco
 
 - Display: Georgia, Cambria, "Times New Roman", serif — compact sentence-case headings with an editorial character.
 - Body: Inter, ui-sans-serif, system-ui, sans-serif — readable, local-safe system fallbacks.
-- Utility: ui-monospace, SFMono-Regular, Consolas, monospace — labels, calculator values and process coordinates.
+- Utility: ui-monospace, SFMono-Regular, Consolas, monospace — labels, calculator values and scoped status markers.
 
 ### Layout
 
-A centred 1180px canvas uses an asymmetrical hero: copy at left and a real SVG workflow field map at right. Sections alternate between open paper and light outlined surfaces. Process stages carry a meaningful 01–04 sequence. The calculator is an instrument panel rather than a marketing pricing card.
+A centred 1180px canvas uses an asymmetrical hero: copy at left and a self-contained HTML deployment brief at right. The brief is a warm surface card with a fine copper header rule, offset warm shadow, three content sections separated by thin rules, and a distinct sage operational-outcome panel. Its content remains in the same order at every viewport; tablet and mobile stack naturally without changing the concept. Sections elsewhere alternate between open paper and light outlined surfaces. The calculator remains an instrument panel rather than a marketing pricing card.
 
-### Signature: workflow field map
+### Signature: bottleneck-to-rollout deployment brief
 
-The bespoke accessible SVG maps messy inputs through Observe, Scope, Build/Test and Roll Out. It includes human approval gates, feedback loops and measurable outputs. It is an explanatory diagram with text alternatives, not decorative art.
+The hero artefact is a semantic `figure` with a labelled brief title, grouped HTML sections and a caption. It carries the exact hierarchy:
+
+- Utility label: “AI deployment brief / 01”
+- Brief title: “Move one bottleneck into a safe first rollout.”
+- The bottleneck: “Enquiries arrive incomplete and scattered across email, forms and call notes.”
+- The first useful change: “Prepare a reviewable intake with the key details, missing information and recommended next step.”
+- The safeguard: “Hold unusual, incomplete or sensitive cases for a person to check before anything is sent or recorded.”
+- Operational outcome: “A clear next action: reply, booking or CRM update.”
+- Caption: “A bounded deployment—not automation for its own sake.”
+
+Small status marks—Scoped, Human-reviewed and Ready for rollout—clarify deployment scope. They are not decoration. There are no SVG diagrams, coordinate grids, routes, arrows, feedback loops, stage circles, diamond gates or alternative mobile sequences. Decorative rules are only boundaries between content groups and never sit behind text.
 
 ## Content and claims guardrails
 
@@ -57,11 +68,11 @@ The bespoke accessible SVG maps messy inputs through Observe, Scope, Build/Test 
 
 ## Architecture
 
-- `index.html`: semantic one-page document, metadata, JSON-LD, content and SVG.
-- `assets/site.css`: responsive tokens, layout, focus/reduced-motion styles.
+- `index.html`: semantic one-page document, metadata, JSON-LD and HTML deployment brief.
+- `assets/site.css`: responsive tokens, layout, focus/reduced-motion styles and responsive deployment-brief styling.
 - `assets/site.js`: nav state, calculator, accessible validation and mailto composition.
 - `404.html`, `favicon.svg`, `social-card.png`, `robots.txt`, `sitemap.xml`: Pages/SEO support.
-- `scripts/verify.py`: deterministic structural, claims, assets and calculator/mailto checks without third-party packages.
+- `scripts/verify.py`: deterministic structural, claims, hero-contract, assets and calculator/mailto checks without third-party packages.
 - `README.md`: local serving and verification instructions.
 
 ## Test and visual audit plan
@@ -74,7 +85,8 @@ The bespoke accessible SVG maps messy inputs through Observe, Scope, Build/Test 
 
 ## Acceptance criteria
 
-- The full page has sticky navigation, hero CTAs, last-mile explanation, bottlenecks, four-week method, guardrails/evals, illustrative scenario, calculator, fit, FAQ, accessible email assessment form and footer.
+- The full page has sticky navigation, hero CTAs, the deployment brief, last-mile explanation, bottlenecks, four-week method, guardrails/evals, illustrative scenario, calculator, fit, FAQ, accessible email assessment form and footer.
+- The hero brief is standalone and concrete: all meaningful content is real HTML text, grouped in the approved diagnostic/deployment order, and contains the visible human-review safeguard and operational outcome.
 - All contact and structured metadata use exactly `enzo491kw@gmail.com`.
 - The site is dependency-free, responsive, keyboard usable, reduced-motion aware and GitHub Pages safe.
-- Every required public artifact exists; deterministic verification passes; no unfinished-placeholder markers or contradictory commercial statements remain.
+- Every required public artifact exists; deterministic verification passes; no unfinished-placeholder markers, removed workflow-map material or contradictory commercial statements remain.
