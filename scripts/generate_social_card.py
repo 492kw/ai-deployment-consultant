@@ -10,5 +10,5 @@ d.text((84,458),'Scoped AI workflow deployment for SMBs',font=body,fill='#4B5651
 for x,y,label,col in [(800,180,'OBSERVE','#E7EEE5'),(950,270,'SCOPE','#F8EADC'),(800,370,'BUILD/TEST','#E7EEE5'),(1010,410,'ROLL OUT','#F8EADC')]:
  d.rounded_rectangle((x,y,x+150,y+58),radius=8,fill=col,outline='#607763',width=2); d.text((x+16,y+19),label,font=mono,fill='#18221F')
 d.line((915,210,950,290),fill='#A95F32',width=5);d.line((1025,328,875,370),fill='#A95F32',width=5);d.line((950,428,1010,438),fill='#A95F32',width=5)
-d.text((80,550),'Brisbane + remote Australia  /  enzo491kw@gmail.com',font=mono,fill='#18221F')
+d.text((80,550),'Brisbane + remote Australia  /  Email Simon',font=mono,fill='#18221F')
 im.save('social-card.png',optimize=True)
