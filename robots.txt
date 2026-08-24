@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://492kw.github.io/ai-deployment-consultant/sitemap.xml
