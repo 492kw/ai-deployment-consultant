@@ -23,7 +23,7 @@
     if (!form.checkValidity()) { error.hidden = false; form.querySelector(':invalid').focus(); return; }
     error.hidden = true;
     const get = name => form.elements[name].value.trim();
-    const subject = 'Workflow assessment enquiry — ' + get('business');
+    const subject = 'Workflow assessment enquiry:' + get('business');
     const body = [
       'Workflow assessment enquiry', '',
       'Business type: ' + get('business'),
