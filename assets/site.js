@@ -35,6 +35,6 @@
       'Sensitivity category: ' + form.elements.sensitivity.value, '',
       'I have not included passwords, API keys, full client records or sensitive documents.'
     ].join('\n');
-    window.location.href = 'mailto:enzo491kw@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = 'mailto:fringedesign.tech@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 })();

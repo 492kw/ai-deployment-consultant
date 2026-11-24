@@ -6,7 +6,7 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-RECIPIENT = 'enzo491kw@gmail.com'
+RECIPIENT = 'fringedesign.tech@gmail.com'
 required = ['index.html', '404.html', 'favicon.svg', 'social-card.png', 'robots.txt', 'sitemap.xml', 'README.md', 'assets/site.css', 'assets/site.js']
 fail = []
 
